@@ -1,0 +1,25 @@
+﻿using AutoMapper;
+using CompanySystem.Application.DTOS;
+using CompanySystem.Domains.Models;
+
+namespace CompanySystem.Api
+{
+    public class MappingProfile : Profile
+    {
+        public MappingProfile()
+        {
+            CreateMap<Company, CompanyDto>()
+    .ForMember(c => c.FullAddress,
+        opt => opt.MapFrom(x => x.Address + ", " + x.Country));
+
+            CreateMap<Employee, EmployeeDto>();
+
+            CreateMap<CompanyForCreationDto, Company>();
+            CreateMap<EmployeeForCreationDto, Employee>();
+            CreateMap<EmployeeForUpdateDto, Employee>();
+            CreateMap<CompanyForUpdateDto, Company>();
+            CreateMap<EmployeeForUpdateDto, Employee>().ReverseMap();
+
+        }
+    }
+}
