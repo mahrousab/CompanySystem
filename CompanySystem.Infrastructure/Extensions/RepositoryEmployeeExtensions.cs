@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 using System.Linq.Dynamic.Core;
+using CompanySystem.Infrastructure.Extensions.Utility;
 
 namespace CompanySystem.Infrastructure.Extensions
 {

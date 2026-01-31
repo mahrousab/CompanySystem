@@ -1,4 +1,5 @@
 using CompanySystem.Api.Extensions;
+using CompanySystem.Application.DTOS;
 using CompanySystem.Application.Interfaces;
 using CompanySystem.Application.services;
 using CompanySystem.Infrastructure.Data;
@@ -19,6 +20,7 @@ builder.Services.ConfigureLoggerService();
 
 builder.Services.AddScoped<IRepositoryManager, RepositoryManager>();
 builder.Services.AddScoped<IServiceManager, ServiceManager>();
+builder.Services.AddScoped<IDataShaper<EmployeeDto>, DataShaper<EmployeeDto>>();
 
 builder.Services
     .AddControllers(options =>

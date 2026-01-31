@@ -3,13 +3,14 @@ using CompanySystem.Domains.Helper;
 using CompanySystem.Domains.Models;
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Text;
 
 namespace CompanySystem.Application.Interfaces
 {
     public interface IEmployeeService
     {
-        Task<(IEnumerable<EmployeeDto> employees, MetaData metaData)> GetEmployeesAsync(Guid
+        Task<(IEnumerable<ExpandoObject> employees, MetaData metaData)> GetEmployeesAsync(Guid
    companyId, EmployeeParameters employeeParameters, bool trackChanges);
 
         Task< EmployeeDto> GetEmployeeAsync(Guid companyId, Guid id, bool trackChanges);
