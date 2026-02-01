@@ -8,5 +8,7 @@ namespace CompanySystem.Application.Interfaces
     {
         ICompanyService CompanyService { get; }
         IEmployeeService EmployeeService { get; }
+        IAuthenticationService AuthenticationService { get; }
+
     }
 }

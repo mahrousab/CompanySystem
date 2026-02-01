@@ -4,6 +4,7 @@ using CompanySystem.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CompanySystem.Infrastructure.Migrations
 {
     [DbContext(typeof(CompanySystemDbContext))]
-    partial class CompanySystemDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260131232209_AddRefreshTokenField")]
+    partial class AddRefreshTokenField
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

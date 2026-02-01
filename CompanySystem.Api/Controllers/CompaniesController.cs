@@ -1,12 +1,15 @@
 ﻿using CompanySystem.Application.DTOS;
 using CompanySystem.Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CompanySystem.Api.Controllers
 {
+    [ApiVersion("1.0")]
     [Route("api/[controller]")]
     [ApiController]
+    [ResponseCache(CacheProfileName = "120SecondsDuration")]
     public class CompaniesController : ControllerBase
     {
         private readonly IServiceManager _service;
@@ -15,7 +18,10 @@ namespace CompanySystem.Api.Controllers
         {
             _service = service;
         }
-        [HttpGet]
+        [HttpGet(Name = "GetCompanies")]
+        
+        [Authorize(Roles = "Manager")]
+
         public async Task< IActionResult> GetCompanies()
         {
             var companies = await _service.CompanyService.GetAllCompaniesAsync(trackChanges: false);
@@ -67,6 +73,11 @@ IEnumerable<CompanyForCreationDto> companyCollection)
          await   _service.CompanyService.UpdateCompanyAsync(id, company, trackChanges: true);
             return NoContent();
         }
-
+        [HttpOptions]
+        public IActionResult GetCompaniesOptions()
+        {
+            Response.Headers.Add("Allow", "GET, OPTIONS, POST");
+            return Ok();
+        }
     }
 }
