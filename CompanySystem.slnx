@@ -7,4 +7,5 @@
   <Project Path="CompanySystem.Domains/CompanySystem.Domains.csproj" />
   <Project Path="CompanySystem.Infrastructure/CompanySystem.Infrastructure.csproj" />
   <Project Path="CompanySystem.LoggerService/CompanySystem.LoggerService.csproj" />
+  <Project Path="CompanySystem.Test/CompanySystem.Test.csproj" Id="1d0e825f-1c74-46fa-9f56-56b612c345f4" />
 </Solution>

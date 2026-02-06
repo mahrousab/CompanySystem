@@ -49,7 +49,7 @@ namespace CompanySystem.Application.services
             if (employeeForCompany is null)
                 throw new EmployeeNotFoundException(id);
             _repository.Employee.DeleteEmployee(employeeForCompany);
-            _repository.SaveAsync();
+           await _repository.SaveAsync();
 
         }
 
